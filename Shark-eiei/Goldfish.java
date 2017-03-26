@@ -21,6 +21,8 @@ public class Goldfish extends FloatObjects
     }    
     
     public Goldfish(){
+       GreenfootImage can1 = new GreenfootImage("goldfish.png");
+       setImage(can1);
     }
     
     public void moving(){
@@ -42,8 +44,11 @@ public class Goldfish extends FloatObjects
     
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
+            Burst b1 = new Burst("blood.png");
+            getWorld().addObject(b1, getX(), getY()+70);
             //Game.eatGarbage++;
             Game.timeCounter+=30000;
+            Greenfoot.playSound("powerup_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
             getWorld().removeObject(this);

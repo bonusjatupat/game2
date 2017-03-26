@@ -88,6 +88,8 @@ public class Game extends World
             time++;
             if(time % 270 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
+                int timeplus = Greenfoot.getRandomNumber(6);
+                if(timeplus == 5) addObject(new Goldfish(), 500, 400);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, 375);
@@ -107,6 +109,8 @@ public class Game extends World
             time++;
             if(time % 250 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
+                int timeplus = Greenfoot.getRandomNumber(8);
+                if(timeplus == 5) addObject(new Goldfish(), 500, 400);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, 375);
@@ -127,6 +131,8 @@ public class Game extends World
             time++;
             if(time % 170 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
+                int timeplus = Greenfoot.getRandomNumber(10);
+                if(timeplus == 5) addObject(new Goldfish(), 500, 400);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, 375);
@@ -161,10 +167,7 @@ public class Game extends World
              addObject(new eatGarbage(), 340, 360);
              addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              addObject(new Buttons("homeBut.png","StartWorld"),515,340);
-        }
-           
-        
-        
+        }         
         showText("score = "+score,getWidth()/2,50);
     }
     
