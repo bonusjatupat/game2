@@ -18,16 +18,19 @@ public class Trees extends Objects
     }    
     
     public Trees(){
-        int randomTree = Greenfoot.getRandomNumber(10);
+        int randomTree = Greenfoot.getRandomNumber(3);
         if(randomTree == 0){
             GreenfootImage tree1 = new GreenfootImage("1tree.png");
             setImage(tree1);
         } else if(randomTree == 1){
             GreenfootImage tree2 = new GreenfootImage("2tree.png");
             setImage(tree2);
-        } else {
-            GreenfootImage tree3 = new GreenfootImage("notree.png");
+        } else if(randomTree == 2){
+            GreenfootImage tree3 = new GreenfootImage("2tree2.png");
             setImage(tree3);
-        }
+        }/* else {
+            GreenfootImage tree4 = new GreenfootImage("notree.png");
+            setImage(tree4);
+        }*/
     }
 }

@@ -44,15 +44,13 @@ public class Game extends World
         addObject(new Clouds(), 350, 80);
         addObject(new Clouds(), 630, 20);
         
-        addObject(new Building("house2edited.png"), 400, 205);
-        addObject(new Building("house1edited.png"), 100, 205);
-        addObject(new Building("house3edited.png"), 670, 205);
+        addObject(new Building("houses.png"), getWidth()/2, 200);
        
         addObject(new TreeSet(), 335, 315);
         int xTree=0;
-        for(int i=0; i<8; i++){ 
+        for(int i=0; i<4; i++){ 
             addObject(new Trees(), xTree, 280);
-            xTree+=110;
+            xTree+=210;
         }
         
         addObject(new GroundSet(), 335, 342);
@@ -168,6 +166,13 @@ public class Game extends World
              addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              addObject(new Buttons("homeBut.png","StartWorld"),515,340);
         }         
+        
+         if(timeCounter<=80000 && timeCounter > 30000){
+            setBackground("bg2.png");
+        } else if (timeCounter <= 30000){
+            setBackground("bg3.png");
+        }
+        
         showText("score = "+score,getWidth()/2,50);
     }
     
@@ -194,12 +199,12 @@ public class Game extends World
             timeLightWater=0;
         }
         timeCloud++;
-        if(timeCloud % 380 == 0){
+        if(timeCloud % 250 == 0){
             addObject(new Clouds(), 670, Greenfoot.getRandomNumber(90)+10);
             timeCloud=0;
         }
         timeTree++;
-        if(timeTree % 22 == 0){
+        if(timeTree % 150 == 0){
             addObject(new Trees(), 670, 280);
             timeTree=0;
          }

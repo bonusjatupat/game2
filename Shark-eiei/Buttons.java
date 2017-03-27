@@ -24,7 +24,6 @@ public class Buttons extends Actor
             }
         } else if(Greenfoot.mouseClicked(this) && world.equals("StartWorld")){
             
-              Game.sound.stop();
             Greenfoot.setWorld(new Start());
         } else if(Greenfoot.mouseClicked(this) && world.equals("ttr")){
             getWorld().addObject(new Tutorial(), getWorld().getWidth()/2, getWorld().getHeight()/2);
