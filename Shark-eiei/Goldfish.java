@@ -47,7 +47,7 @@ public class Goldfish extends FloatObjects
             Burst b1 = new Burst("blood.png");
             getWorld().addObject(b1, getX(), getY()+70);
             //Game.eatGarbage++;
-            Game.timeCounter+=15000;
+            Timer.playtime+=600;
             Game.HP.add(200);
             Greenfoot.playSound("powerup_sound.mp3");
             getWorld().removeObject(this);

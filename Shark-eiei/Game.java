@@ -20,7 +20,7 @@ public class Game extends World
     public static int eatGarbage;
     static int i = 0;
     
-    public static Health HP = new Health("Shark", "HP", 0, 1500);
+    public static Health HP = new Health("Shark", "HP", 0, 2000);
     
     public Game()
     {    
@@ -32,9 +32,9 @@ public class Game extends World
             sound.play();
         }
         i++;
-        addObject(HP,250,50);
-        HP.add(1500);
-        timeCounter=120000;
+        addObject(HP,105,20);
+        HP.value = 2000;
+        timeCounter=1500;
         eatBoat=0;
         eatPeople=0;
         eatGarbage=0;
@@ -50,6 +50,8 @@ public class Game extends World
         addObject(new Clouds(), 630, 20);
         addObject(new Building("houses.png"), getWidth()/2, 200);
         addObject(new TreeSet(), 335, 315);
+        addObject(new Scorepoint(),42,40);
+        addObject(new Timer(),43,60);
         int xTree=0;
         for(int i=0; i<4; i++){ 
             addObject(new Trees(), xTree, 280);
@@ -80,9 +82,6 @@ public class Game extends World
     public void act(){
         movingObject();
         HP.subtract(1);
-        if(HP.value==0){
-            Greenfoot.stop();
-        }
         if(Start.level == 1){
             time++;
             if(time % 270 == 0){
@@ -148,17 +147,19 @@ public class Game extends World
                 }
             }
         }
-        
-        for(int i = 30 ; i > 0; i--){
-            if(timeCounter > 0){
-                showText("time : " + (int)(timeCounter/2000),100,50);
-                timeCounter--;
-            } else if(timeCounter == 0){
-                showText("time : 0",100,50);
-            }
+        Timer.playtime--;
+        timeCounter--;
+       if(timeCounter == 0){
+            timeCounter = 1500;
         }
-            
-        if(timeCounter==0){
+       if(timeCounter==1500 ){
+            setBackground("bg.png");
+        } else if (timeCounter==1000){
+            setBackground("bg2.png");
+        }else if(timeCounter==500){
+            setBackground("bg3.png");
+        }
+       if(Timer.playtime==0){
              addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
              addObject(new Score(), getWidth()/2, 230);
              addObject(new eatPeople(), 318, 287);
@@ -166,17 +167,18 @@ public class Game extends World
              addObject(new eatGarbage(), 340, 360);
              addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              addObject(new Buttons("homeBut.png","StartWorld"),515,340);
-        }         
-        
-         if(timeCounter<=80000 && timeCounter > 30000){
-            setBackground("bg2.png");
-        } else if (timeCounter <= 30000){
-            setBackground("bg3.png");
+             Greenfoot.stop();
+        }else if(HP.value==0){
+             addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
+             addObject(new Score(), getWidth()/2, 230);
+             addObject(new eatPeople(), 318, 287);
+             addObject(new eatBoat(), 285, 321);
+             addObject(new eatGarbage(), 340, 360);
+             addObject(new Buttons("replayBut.png","MyWorld"),430,340);
+             addObject(new Buttons("homeBut.png","StartWorld"),515,340);
+             Greenfoot.stop();
         }
-        
-        showText("score = "+score,getWidth()/2,50);
-    }
-    
+        }
     int timeGround=-70;
     int timeDarkWater=-21;
     int timeLightWater=4;
