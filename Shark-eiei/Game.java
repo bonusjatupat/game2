@@ -19,6 +19,9 @@ public class Game extends World
     public static int eatPeople;
     public static int eatGarbage;
     static int i = 0;
+    
+    public static Health HP = new Health("Shark", "HP", 0, 1500);
+    
     public Game()
     {    
         super(670, 500, 1);
@@ -29,6 +32,8 @@ public class Game extends World
             sound.play();
         }
         i++;
+        addObject(HP,250,50);
+        HP.add(1500);
         timeCounter=120000;
         eatBoat=0;
         eatPeople=0;
@@ -43,38 +48,30 @@ public class Game extends World
         addObject(new Clouds(), 90, 100);
         addObject(new Clouds(), 350, 80);
         addObject(new Clouds(), 630, 20);
-        
         addObject(new Building("houses.png"), getWidth()/2, 200);
-       
         addObject(new TreeSet(), 335, 315);
         int xTree=0;
         for(int i=0; i<4; i++){ 
             addObject(new Trees(), xTree, 280);
             xTree+=210;
         }
-        
         addObject(new GroundSet(), 335, 342);
         int xGround=0;
         for(int i=0; i<8; i++){
             addObject(new Ground(), xGround, 320);
             xGround+=90;
         }
-        
         int xDarkWater=0;
         for(int i=0; i<16; i++){
             addObject(new DarkWater(), xDarkWater, 380);
             xDarkWater+=43;
         }
-        
         addObject(new Shark(), 100, 450);
-     
         int xLightWater=0;
         for(int i=0; i<16; i++){
             addObject(new LightWater(), xLightWater, 445);
             xLightWater+=44;
         }
-        
-        
         addObject(new Buttons("home3.png","StartWorld"),640,30);
         addObject(new Buttons("play.png","MyWorld"),590,30);
     }
@@ -82,6 +79,10 @@ public class Game extends World
     int time;
     public void act(){
         movingObject();
+        HP.subtract(1);
+        if(HP.value==0){
+            Greenfoot.stop();
+        }
         if(Start.level == 1){
             time++;
             if(time % 270 == 0){

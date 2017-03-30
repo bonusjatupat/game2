@@ -54,6 +54,7 @@ public class Swim extends FloatObjects
             Burst b1 = new Burst("blood.png");
             getWorld().addObject(b1, getX(), getY()+70);
             Game.eatPeople++;
+            Game.HP.add(300);
             Game.score+=10;
             Greenfoot.playSound("bite_sound.mp3");
             getWorld().removeObject(this);

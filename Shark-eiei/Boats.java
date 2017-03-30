@@ -63,6 +63,7 @@ public class Boats extends FloatObjects
             getWorld().addObject(b1, getX(), getY()+20);
             Game.eatBoat++;
             Game.score+=5;
+            Game.HP.add(100);
             Greenfoot.playSound("bite_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){

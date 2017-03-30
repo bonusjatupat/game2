@@ -47,6 +47,7 @@ public class Cans extends FloatObjects
             Burst b1 = new Burst("poisonSmoke2.png");
             getWorld().addObject(b1, getX(), getY());
             Game.eatGarbage++;
+            Game.HP.subtract(100);
             Game.score-=5;
             Greenfoot.playSound("ouch_sound.mp3");
             getWorld().removeObject(this);
