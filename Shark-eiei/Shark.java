@@ -13,6 +13,7 @@ public class Shark extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public static boolean isDown;
+    public static boolean stopMover = false;
     public void act() 
     {
         // Add your action code here.
@@ -24,7 +25,7 @@ public class Shark extends Actor
     public void checkKey(){
         if(getX()>=60) move(-1);
         
-        if(Game.timeCounter > 0){
+        if(Timer.playtime<=3600 && Timer.playtime>0 && stopMover==false){
             if(Greenfoot.isKeyDown("left")) move(-5);
             if(Greenfoot.isKeyDown("right")) move(5);
             if(Greenfoot.isKeyDown("down")) setLocation(getX(), getY()+2);
@@ -37,7 +38,7 @@ public class Shark extends Actor
     }
     
     public void pressA(){
-        if(Game.timeCounter > 0){
+        if(Timer.playtime<=3600 && Timer.playtime>0 && stopMover==false){
             if ( !isDown && Greenfoot.isKeyDown("space") ) {
                 setImage ("shark2.png");
                 isDown = true;

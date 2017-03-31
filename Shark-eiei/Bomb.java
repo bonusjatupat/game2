@@ -36,18 +36,19 @@ public class Bomb extends Actor
            
             Burst b1 = new Burst("bursttt.png");
             getWorld().addObject(b1, getX(), getY());
-              Greenfoot.playSound("bomb_sound.mp3");
-             
+            Greenfoot.playSound("bomb_sound.mp3");
+            Game.HP.subtract(Game.HP.value); 
+            Game.HP.value = 0;
+             Shark.stopMover = true;
              getWorld().addObject(new ScoreBoard(), getWorld().getWidth()/2, getWorld().getHeight()/2);
              getWorld().addObject(new Score(), getWorld().getWidth()/2, 230);
              getWorld().addObject(new eatPeople(), 318, 287);
              getWorld().addObject(new eatBoat(), 285, 321);
              getWorld().addObject(new eatGarbage(),  340, 360);
-             
              getWorld().addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              getWorld().addObject(new Buttons("homeBut.png","StartWorld"),515,340);
-            // Game.HP.subtract(500);
-             Game.timeCounter = -20;
+             
+             //Game.timeCounter = -20;
              getWorld().removeObject(this);
         } else if(getY() >= 450){
             getWorld().removeObject(this);

@@ -10,7 +10,7 @@ public class Timer extends Actor
     static int playtime;
     private static final Color transparent = new Color(0,0,0,0);
     public Timer(){
-        playtime = 3600;
+      playtime = 3600;
     }
     /**
      * Act - do whatever the Timer wants to do. This method is called whenever
