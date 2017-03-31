@@ -19,11 +19,11 @@ public class Shark extends Actor
         // Add your action code here.
         checkKey();
         pressA();
-    }    
-    
+        jump();
+    }  
     
     public void checkKey(){
-        if(getX()>=60) move(-1);
+        if(getX()>=60) move(-3);
         
         if(Timer.playtime<=3600 && Timer.playtime>0 && stopMover==false){
             if(Greenfoot.isKeyDown("left")) move(-5);
@@ -49,5 +49,34 @@ public class Shark extends Actor
             }
         }
     }
-    
+   
+    public int goUp;
+    public int groundLevel=450;
+    boolean isJump = false;
+    public void jump()
+    {
+        boolean onGround = (getY() == groundLevel);
+        if (!onGround && isJump)
+        {
+           goUp++;
+           setLocation(getX()+10, getY()+goUp);
+           //setImage(new GreenfootImage("sharkdown.png"));
+           if (getY()>=groundLevel)
+           {
+                setLocation(getX(), groundLevel);
+                isJump = false;
+                //setImage(new GreenfootImage("shark.png"));
+           }
+        }
+        else
+        {
+            if (Greenfoot.isKeyDown("enter") && !isJump)
+            {
+                goUp = -25;
+                setLocation(getX()+10, getY()+goUp);
+                isJump=true;
+                //setImage(new GreenfootImage("sharkup.png"));
+            }
+        }
+    }
 }

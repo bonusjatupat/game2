@@ -25,12 +25,12 @@ public class Game extends World
     public Game()
     {    
         super(670, 500, 1);
-        sound = new GreenfootSound("theme_sound.mp3");
+        /*sound = new GreenfootSound("theme_sound.mp3");
         if(i!=0){
             sound.stop();
         }else{
             sound.play();
-        }
+        }*/
         i++;
         addObject(HP,105,20);
         addObject(new PlayerName(),105,80);
@@ -43,7 +43,7 @@ public class Game extends World
         score=0;
         addOb();
         setPaintOrder(Buttons.class, ScoreBoard.class, LightWater.class, Bomb.class, FloatObjects.class, Burst.class, Shark.class, 
-                      DarkWater.class, Ground.class, Trees.class, Building.class, Clouds.class);
+                      DarkWater.class, Ground.class, Trees.class, Building.class, PlayerName.class, Scorepoint.class, Health.class, Timer.class, Clouds.class);
     }
     
     public void addOb(){
