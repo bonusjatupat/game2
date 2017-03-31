@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import javax.swing.*;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -33,6 +33,7 @@ public class Game extends World
         }
         i++;
         addObject(HP,105,20);
+        addObject(new PlayerName(),105,80);
         HP.value = 2000;
         timeCounter=1500;
         eatBoat=0;
@@ -50,8 +51,8 @@ public class Game extends World
         addObject(new Clouds(), 630, 20);
         addObject(new Building("houses.png"), getWidth()/2, 200);
         addObject(new TreeSet(), 335, 315);
-        addObject(new Scorepoint(),42,40);
-        addObject(new Timer(),43,60);
+        addObject(new Scorepoint(),105,40);
+        addObject(new Timer(),105,60);
         int xTree=0;
         for(int i=0; i<4; i++){ 
             addObject(new Trees(), xTree, 280);
@@ -176,7 +177,7 @@ public class Game extends World
              addObject(new eatGarbage(), 340, 360);
              addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              addObject(new Buttons("homeBut.png","StartWorld"),515,340);
-             Greenfoot.stop();
+             //Greenfoot.stop();
         }
         }
     int timeGround=-70;

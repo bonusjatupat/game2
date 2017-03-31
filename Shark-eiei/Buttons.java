@@ -20,7 +20,7 @@ public class Buttons extends Actor
             if(Start.level > 0){
                 Greenfoot.setWorld(new Game());
             } else if(Start.level == 0){
-                getWorld().showText("Please select the level!", getWorld().getWidth()/2, 280);
+                getWorld().addObject(new chooseStage(),getWorld().getWidth()/2, 285);
             }
         } else if(Greenfoot.mouseClicked(this) && world.equals("StartWorld")){
             

@@ -46,7 +46,7 @@ public class Bomb extends Actor
              
              getWorld().addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              getWorld().addObject(new Buttons("homeBut.png","StartWorld"),515,340);
-        
+            // Game.HP.subtract(500);
              Game.timeCounter = -20;
              getWorld().removeObject(this);
         } else if(getY() >= 450){
