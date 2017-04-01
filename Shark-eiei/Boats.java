@@ -62,7 +62,6 @@ public class Boats extends FloatObjects
             Burst b1 = new Burst("bursttt.png");
             getWorld().addObject(b1, getX(), getY()+20);
             Game.eatBoat++;
-            Game.score+=5;
             Game.HP.add(150);
             Greenfoot.playSound("bite_sound.mp3");
             getWorld().removeObject(this);

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Goldfish extends FloatObjects
+public class Cans extends FloatObjects
 {
     /**
      * Act - do whatever the Cans wants to do. This method is called whenever
@@ -20,9 +20,9 @@ public class Goldfish extends FloatObjects
         eaten();
     }    
     
-    public Goldfish(){
-       GreenfootImage can1 = new GreenfootImage("goldfish.png");
-       setImage(can1);
+    public Cans(){
+        GreenfootImage can1 = new GreenfootImage("can.png");
+        setImage(can1);
     }
     
     public void moving(){
@@ -44,10 +44,12 @@ public class Goldfish extends FloatObjects
     
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
-            Burst b1 = new Burst("blood.png");
-            getWorld().addObject(b1, getX(), getY()+70);
-            Game.HP.add(200);
-            Greenfoot.playSound("powerup_sound.mp3");
+            Burst b1 = new Burst("poisonSmoke2.png");
+            getWorld().addObject(b1, getX(), getY());
+            Game.eatGarbage++;
+            Game.HP.subtract(150);
+            Game.score-=5;
+            Greenfoot.playSound("ouch_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
             getWorld().removeObject(this);

@@ -25,7 +25,7 @@ public class Shark extends Actor
     public void checkKey(){
         if(getX()>=60) move(-3);
         
-        if(Timer.playtime<=3600 && Timer.playtime>0 && stopMover==false){
+        if(/*Timer.playtime<=3600 && Timer.playtime>0*/ Game.HP.value>0 && stopMover==false){
             if(Greenfoot.isKeyDown("left")) move(-5);
             if(Greenfoot.isKeyDown("right")) move(5);
             if(Greenfoot.isKeyDown("down")) setLocation(getX(), getY()+2);
@@ -59,7 +59,7 @@ public class Shark extends Actor
         if (!onGround && isJump)
         {
            goUp++;
-           setLocation(getX()+10, getY()+goUp);
+           setLocation(getX()+3, getY()+goUp);
            //setImage(new GreenfootImage("sharkdown.png"));
            if (getY()>=groundLevel)
            {
@@ -70,10 +70,10 @@ public class Shark extends Actor
         }
         else
         {
-            if (Greenfoot.isKeyDown("enter") && !isJump)
+            if (Greenfoot.isKeyDown("B") && !isJump)
             {
                 goUp = -25;
-                setLocation(getX()+10, getY()+goUp);
+                setLocation(getX()+3, getY()+goUp);
                 isJump=true;
                 //setImage(new GreenfootImage("sharkup.png"));
             }

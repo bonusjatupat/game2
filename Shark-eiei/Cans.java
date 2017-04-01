@@ -48,7 +48,6 @@ public class Cans extends FloatObjects
             getWorld().addObject(b1, getX(), getY());
             Game.eatGarbage++;
             Game.HP.subtract(150);
-            Game.score-=5;
             Greenfoot.playSound("ouch_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
