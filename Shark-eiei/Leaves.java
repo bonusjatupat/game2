@@ -30,7 +30,7 @@ public class Leaves extends Objects
     }
     
     public void moveRandom(){
-        if(isAtEdge() || getY() > 300){
+        if(isAtEdge() || getY() >= 300){
             turn(5);
         }
         if(Greenfoot.getRandomNumber(100) < 10){
