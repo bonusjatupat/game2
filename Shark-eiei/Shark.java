@@ -72,7 +72,7 @@ public class Shark extends Actor
         {
             if (Greenfoot.isKeyDown("B") && !isJump)
             {
-                goUp = -25;
+                goUp = -23;
                 setLocation(getX()+3, getY()+goUp);
                 isJump=true;
                 //setImage(new GreenfootImage("sharkup.png"));

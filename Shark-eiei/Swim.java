@@ -53,7 +53,7 @@ public class Swim extends FloatObjects
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("blood.png");
             getWorld().addObject(b1, getX(), getY()+70);
-            Game.eatPeople++;
+            Game.eatStuff++;
             Game.HP.add(300);
             Greenfoot.playSound("bite_sound.mp3");
             getWorld().removeObject(this);

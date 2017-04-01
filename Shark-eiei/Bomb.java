@@ -39,14 +39,18 @@ public class Bomb extends Actor
             Greenfoot.playSound("bomb_sound.mp3");
             Game.HP.subtract(Game.HP.value); 
             Game.HP.value = 0;
-             Shark.stopMover = true;
-             getWorld().addObject(new ScoreBoard(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-             getWorld().addObject(new Score(), getWorld().getWidth()/2, 230);
-             getWorld().addObject(new eatPeople(), 318, 287);
-             getWorld().addObject(new eatBoat(), 285, 321);
-             getWorld().addObject(new eatGarbage(),  340, 360);
-             getWorld().addObject(new Buttons("replayBut.png","MyWorld"),430,340);
-             getWorld().addObject(new Buttons("homeBut.png","StartWorld"),515,340);
+            Shark.stopMover = true;
+             
+            if(Game.isPlaying == true){
+                getWorld().addObject(new ScoreBoard(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+                getWorld().addObject(new Score(), getWorld().getWidth()/2, 230);
+                getWorld().addObject(new PlayTime(), 315, 287);
+                getWorld().addObject(new EatStuff(), 300, 321);
+                getWorld().addObject(new eatGarbage(),  340, 360);
+                getWorld().addObject(new Buttons("replayBut.png","MyWorld"),430,340);
+                getWorld().addObject(new Buttons("homeBut.png","StartWorld"),515,340);
+                Game.isPlaying = false;
+            }
              
              //Game.timeCounter = -20;
              getWorld().removeObject(this);

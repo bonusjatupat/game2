@@ -15,8 +15,7 @@ public class Game extends World
     public static GreenfootSound sound;
     public static int timeCounter;
     public static int score;
-    public static int eatBoat;
-    public static int eatPeople;
+    public static int eatStuff;
     public static int eatGarbage;
     public static boolean isPlaying;
     static int i = 0;
@@ -39,8 +38,7 @@ public class Game extends World
         Shark.stopMover = false;
         isPlaying = true;
         timeCounter=1500;
-        eatBoat=0;
-        eatPeople=0;
+        eatStuff=0;
         eatGarbage=0;
         score=0;
         addOb();
@@ -83,7 +81,8 @@ public class Game extends World
         addObject(new Buttons("play.png","MyWorld"),590,30);
     }
     int timeBomb;
-    int time;
+    int timeFloat;
+    int timeFly;
     public void act(){
         movingObject();
         if(HP.value>0/* && Timer.playtime>0*/){
@@ -93,8 +92,13 @@ public class Game extends World
            Shark.stopMover = true;
        }
        if(Start.level == 1){
-            time++;
-            if(time % 270 == 0){
+            timeFly++;
+            if(timeFly % 200 == 0){
+                addObject(new Bird(), 670, 150);
+                timeFly=0;
+            }
+            timeFloat++;
+            if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(6);
                 if(timeplus == 5) addObject(new Goldfish(), 500, 400);
@@ -102,7 +106,7 @@ public class Game extends World
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, 375);
                 if(randomOb == 3) addObject(new Cans(), 670, 470);
-                time = 0;
+                timeFloat = 0;
             }
             timeBomb++;
             if(timeBomb % 300 == 0){
@@ -114,8 +118,13 @@ public class Game extends World
             }
         }
         else if(Start.level == 2){
-            time++;
-            if(time % 250 == 0){
+            timeFly++;
+            if(timeFly % 200 == 0){
+                addObject(new Bird(), 670, 150);
+                timeFly=0;
+            }
+            timeFloat++;
+            if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(8);
                 if(timeplus == 5) addObject(new Goldfish(), 500, 400);
@@ -123,9 +132,8 @@ public class Game extends World
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, 375);
                 if(randomOb == 3) addObject(new Cans(), 670, 470);
-                time = 0;
+                timeFloat = 0;
             }
-        
             timeBomb++;
             if(timeBomb % 200 == 0){
                 int position = Greenfoot.getRandomNumber(570)+50;
@@ -136,8 +144,13 @@ public class Game extends World
             }
         }
         else if(Start.level == 3){
-            time++;
-            if(time % 170 == 0){
+            timeFly++;
+            if(timeFly % 200 == 0){
+                addObject(new Bird(), 670, 150);
+                timeFly=0;
+            }
+            timeFloat++;
+            if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(10);
                 if(timeplus == 5) addObject(new Goldfish(), 500, 400);
@@ -145,7 +158,7 @@ public class Game extends World
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, 375);
                 if(randomOb == 3) addObject(new Cans(), 670, 470);
-                time = 0;
+                timeFloat = 0;
             }
         
             timeBomb++;
@@ -192,8 +205,8 @@ public class Game extends World
              isPlaying = false;
              addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
              addObject(new Score(), getWidth()/2, 230);
-             addObject(new eatPeople(), 318, 287);
-             addObject(new eatBoat(), 285, 321);
+             addObject(new PlayTime(), 315, 287);
+             addObject(new EatStuff(), 300, 321);
              addObject(new eatGarbage(), 340, 360);
              addObject(new Buttons("replayBut.png","MyWorld"),430,340);
              addObject(new Buttons("homeBut.png","StartWorld"),515,340);
