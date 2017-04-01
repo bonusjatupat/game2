@@ -38,7 +38,7 @@ public class Shark extends Actor
     }
     
     public void pressA(){
-        if(Timer.playtime<=3600 && Timer.playtime>0 && stopMover==false){
+        if(Timer.playtime<=4000 && Timer.playtime>0 && stopMover==false){
             if ( !isDown && Greenfoot.isKeyDown("space") ) {
                 setImage ("shark2.png");
                 isDown = true;

@@ -28,8 +28,8 @@ public class Bomb extends Actor
         
         sharkTouch();
     }    
-    
-    
+    //370-450
+    int randomBomb = Greenfoot.getRandomNumber(80)+370;
     public void sharkTouch(){
         
         if(isTouching(Shark.class)){
@@ -54,7 +54,10 @@ public class Bomb extends Actor
              
              //Game.timeCounter = -20;
              getWorld().removeObject(this);
-        } else if(getY() >= 450){
+        } else if(getY() >= randomBomb){
+            Burst b1 = new Burst("burst.png");
+            getWorld().addObject(b1, getX(), getY());
+            Greenfoot.playSound("bomb_sound.mp3");
             getWorld().removeObject(this);
         }  
     }
