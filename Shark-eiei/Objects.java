@@ -15,7 +15,8 @@ public class Objects extends SmoothMover
     public void act() 
     {
        
-    }    
+    } 
+    
     public void moving(int speed){
         move(speed);
         if(isAtEdge()){

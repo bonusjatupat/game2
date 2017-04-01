@@ -57,6 +57,9 @@ public class Game extends World
         addObject(new TreeSet(), 335, 315);
         addObject(new Scorepoint(),105,40);
         addObject(new Timer(),105,60);
+        for(int i=0; i<15; i++){
+            addObject(new Leaves(), Greenfoot.getRandomNumber(670), Greenfoot.getRandomNumber(200));
+        }
         int xTree=0;
         for(int i=0; i<4; i++){ 
             addObject(new Trees(), xTree, 280);
@@ -192,13 +195,13 @@ public class Game extends World
        if(timeCounter == 0){
             timeCounter = 1500;
         }
-       if(timeCounter==1500 ){
+       /*if(timeCounter==1500 ){
             setBackground("bg.png");
         } else if (timeCounter==1000){
             setBackground("bg2.png");
         }else if(timeCounter==500){
             setBackground("bg3.png");
-        }
+        }*/
        /*if(Timer.playtime==0){
              addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
              addObject(new Score(), getWidth()/2, 230);
