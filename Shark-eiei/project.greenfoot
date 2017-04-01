@@ -2,7 +2,6 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=origin/master
-class.Bird.image=butterfly.png
 class.Bird.superclass=FloatObjects
 class.Boats.image=boat3.png
 class.Boats.superclass=FloatObjects
@@ -323,9 +322,9 @@ dependency87.type=UsesDependency
 dependency9.from=Start
 dependency9.to=Hard
 dependency9.type=UsesDependency
-editor.fx.0.height=0
-editor.fx.0.width=0
-editor.fx.0.x=0
+editor.fx.0.height=747
+editor.fx.0.width=818
+editor.fx.0.x=167
 editor.fx.0.y=0
 mainWindow.height=744
 mainWindow.width=1378

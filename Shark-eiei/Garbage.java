@@ -47,7 +47,6 @@ public class Garbage extends FloatObjects
             Burst b1 = new Burst("poisonSmoke.png");
             getWorld().addObject(b1, getX(), getY());
             Game.eatGarbage++;
-            Game.score-=10;
             if(Game.HP.value>0){
              Game.HP.subtract(300);
             }

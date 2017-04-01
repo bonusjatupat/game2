@@ -46,12 +46,11 @@ public class Goldfish extends FloatObjects
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("blood.png");
             getWorld().addObject(b1, getX(), getY()+70);
-            //Game.eatGarbage++;
-            Timer.playtime+=600;
-        if(Game.HP.value>0){
-            Game.HP.add(200);
-        }
-            Greenfoot.playSound("powerup_sound.mp3");
+            Game.eatStuff++;
+            if(Game.HP.value>0){
+                Game.HP.add(200);
+            }
+            //Greenfoot.playSound("powerup_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
             getWorld().removeObject(this);

@@ -17,12 +17,12 @@ public class Burst extends Actor
     public void act(){
            timeBurst++;
            //setImage(burst.getCurrentImage());
-       if(isTouching(Shark.class)){
-       if(Game.HP.value>0){
-            Game.HP.subtract(50);
-            getWorld().removeObject(this);
-       }
-       }
+       /*if(isTouching(Shark.class)){
+           if(Game.HP.value>0){
+               Game.HP.subtract(50);
+               getWorld().removeObject(this);
+            }
+       }*/
        if(timeBurst==40){
                getWorld().removeObject(this);
        }
