@@ -28,7 +28,7 @@ public class Shark extends Actor
     public void checkKey(){
         if(getX()>=60) move(-3);
         
-        if(/*Timer.playtime<=3600 && Timer.playtime>0*/ Game.HP.value>0 && stopMover==false){
+        if(Game.HP.value>0 && stopMover==false){
             if(Greenfoot.isKeyDown("left")) move(-5);
             if(Greenfoot.isKeyDown("right")) move(5);
             if(Greenfoot.isKeyDown("down")) setLocation(getX(), getY()+2);
