@@ -17,6 +17,8 @@ public class Game extends World
     public static int score;
     public static int eatStuff;
     public static int eatGarbage;
+    //public static int eatBoat;
+    //public static int eatPeople;
     public static boolean isPlaying;
     static int i = 0;
     
@@ -25,12 +27,12 @@ public class Game extends World
     public Game()
     {    
         super(670, 500, 1);
-        /*sound = new GreenfootSound("theme_sound.mp3");
+        sound = new GreenfootSound("theme_sound.mp3");
         if(i!=0){
             sound.stop();
         }else{
             sound.play();
-        }*/
+        }
         i++;
         addObject(HP,105,20);
         addObject(new PlayerName(),105,80);

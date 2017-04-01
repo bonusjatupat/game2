@@ -60,13 +60,10 @@ public class Boats extends FloatObjects
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("bursttt.png");
             getWorld().addObject(b1, getX(), getY()+20);
-<<<<<<< HEAD
             Game.eatStuff++;
-=======
-            Game.eatBoat++;
+            //Game.eatBoat++;
             Game.score+=5;
         if(Game.HP.value>0){
->>>>>>> origin/master
             Game.HP.add(150);
         }
             Greenfoot.playSound("bite_sound.mp3");

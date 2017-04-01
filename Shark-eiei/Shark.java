@@ -55,8 +55,11 @@ public class Shark extends Actor
     boolean isJump = false;
     public void jump()
     {
+        if(stopMover==true){
+            setLocation(getX(),450);
+        }
         boolean onGround = (getY() == groundLevel);
-        if (!onGround && isJump)
+        if (!onGround && isJump && stopMover==false)
         {
            goUp++;
            setLocation(getX()+3, getY()+goUp);

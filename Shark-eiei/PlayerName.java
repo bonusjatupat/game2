@@ -18,19 +18,6 @@ public class PlayerName extends Actor
         //check = inputValue.length();
         check1 = false;
         while(check1!=true){
-<<<<<<< HEAD
-            if(check==0 || check>8){
-                inputValue = JOptionPane.showInputDialog("Please input your name..(1-8 characters)");
-                check = inputValue.length();
-            }
-            else {
-                check1 = true;
-            }
-        }
-        playername = inputValue;
-    }
-    
-=======
         if(check==0 || check>8){
           inputValue = JOptionPane.showInputDialog("Please input your name..(1-8 characters)");
           check = inputValue.length();
@@ -46,8 +33,7 @@ public class PlayerName extends Actor
         playername = inputValue;
     }
 }
->>>>>>> origin/master
-    /**
+/**
      * Act - do whatever the Timer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
