@@ -22,6 +22,7 @@ public class Goldfish extends FloatObjects
     
     public Goldfish(){
        GreenfootImage can1 = new GreenfootImage("goldfish.png");
+       can1.scale(30,27);
        setImage(can1);
     }
     
@@ -50,7 +51,7 @@ public class Goldfish extends FloatObjects
             if(Game.HP.value>0){
                 Game.HP.add(200);
             }
-            //Greenfoot.playSound("powerup_sound.mp3");
+            Greenfoot.playSound("powerup_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
             getWorld().removeObject(this);

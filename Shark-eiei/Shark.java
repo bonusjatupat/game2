@@ -20,7 +20,9 @@ public class Shark extends Actor
         checkKey();
         pressA();
         jump();
-        jumpMovement();
+        //jumpMovement();
+        //timeJump++;
+        //getWorld().showText("timeJump " + timeJump, 500, 100);
     }  
     
     public void checkKey(){
@@ -54,25 +56,16 @@ public class Shark extends Actor
     public int goUp;
     public int groundLevel=450;
     boolean isJump = false;
-    public int eiei = 0;
     public void jump()
     {
         if(stopMover==true){
             setLocation(getX(),groundLevel);
         }
         boolean onGround = (getY() == groundLevel);
-        //boolean checkFly = false;
         if (!onGround && isJump && stopMover==false)
         {
            goUp++;
-           setLocation(getX()+3, getY()+goUp);
-           eiei = 2;
-            if(getY()<=335 & getY()>=120){ //120-335
-                   //setImage(new GreenfootImage("sharkup.png"));
-                   //setImage(new GreenfootImage("sharkdown.png"));
-                
-            }
-           //setImage(new GreenfootImage("sharkdown.png"));
+           setLocation(getX()+5, getY()+goUp);
            if (getY()>=groundLevel)
            {
                 setLocation(getX(), groundLevel);
@@ -85,26 +78,29 @@ public class Shark extends Actor
             if (Greenfoot.isKeyDown("control") && !isJump)
             {
                 goUp = -23;
-                setLocation(getX()+3, getY()+goUp);
- 
-                
+                setLocation(getX()+5, getY()+goUp);
+                setImage(new GreenfootImage("sharkup.png"));
+                   
                 //turn(45);
                 isJump=true;
-                eiei = 1;
                 //setImage(new GreenfootImage("sharkup.png"));
             }
         }
     }
     
+    int timeJump = 0;
     public void jumpMovement(){
         if(isJump == true){
-            if(getY()>=150 && eiei==1){
+            timeJump++;
+            if(timeJump <= 10){
                 setImage(new GreenfootImage("sharkup.png"));
-            } else if(getY()<120 && getY()>150){
+            } /*else if(timeJump > 10 && timeJump < 13){
                 setImage(new GreenfootImage("shark.png"));
-            } else if(getY()<groundLevel && eiei==2){
+            }**/ else if(timeJump >= 13){
                 setImage(new GreenfootImage("sharkdown.png"));
+                timeJump=0;
             }
         }
     }
+   
 }
