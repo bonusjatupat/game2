@@ -56,27 +56,36 @@ public class Shark extends Actor
     public void jump()
     {
         if(stopMover==true){
-            setLocation(getX(),450);
+            setLocation(getX(),groundLevel);
         }
         boolean onGround = (getY() == groundLevel);
+        //boolean checkFly = false;
         if (!onGround && isJump && stopMover==false)
         {
            goUp++;
            setLocation(getX()+3, getY()+goUp);
+            if(getY()<=335 & getY()>=120){ //120-335
+                    setImage(new GreenfootImage("sharkup.png"));
+                   //setImage(new GreenfootImage("sharkdown.png"));
+                
+            }
            //setImage(new GreenfootImage("sharkdown.png"));
            if (getY()>=groundLevel)
            {
                 setLocation(getX(), groundLevel);
                 isJump = false;
-                //setImage(new GreenfootImage("shark.png"));
+                setImage(new GreenfootImage("shark.png"));
            }
         }
         else
         {
-            if (Greenfoot.isKeyDown("B") && !isJump)
+            if (Greenfoot.isKeyDown("control") && !isJump)
             {
                 goUp = -23;
                 setLocation(getX()+3, getY()+goUp);
+ 
+                
+                //turn(45);
                 isJump=true;
                 //setImage(new GreenfootImage("sharkup.png"));
             }

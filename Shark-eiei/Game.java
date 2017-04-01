@@ -95,19 +95,21 @@ public class Game extends World
        }
        if(Start.level == 1){
             timeFly++;
+            int randomBird = Greenfoot.getRandomNumber(120)+160;
+            int randomObject = Greenfoot.getRandomNumber(80)+370;
             if(timeFly % 200 == 0){
-                addObject(new Bird(), 670, 150);
+                addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(6);
-                if(timeplus == 5) addObject(new Goldfish(), 500, 400);
+                if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
-                if(randomOb == 2) addObject(new Garbage(), 670, 375);
-                if(randomOb == 3) addObject(new Cans(), 670, 470);
+                if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
+                if(randomOb == 3) addObject(new Cans(), 670, randomObject);
                 timeFloat = 0;
             }
             timeBomb++;
@@ -121,19 +123,21 @@ public class Game extends World
         }
         else if(Start.level == 2){
             timeFly++;
+            int randomBird = Greenfoot.getRandomNumber(120)+160;
+            int randomObject = Greenfoot.getRandomNumber(80)+370;
             if(timeFly % 200 == 0){
-                addObject(new Bird(), 670, 150);
+                addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(8);
-                if(timeplus == 5) addObject(new Goldfish(), 500, 400);
+                if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
-                if(randomOb == 2) addObject(new Garbage(), 670, 375);
-                if(randomOb == 3) addObject(new Cans(), 670, 470);
+                if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
+                if(randomOb == 3) addObject(new Cans(), 670, randomObject);
                 timeFloat = 0;
             }
             timeBomb++;
@@ -147,19 +151,21 @@ public class Game extends World
         }
         else if(Start.level == 3){
             timeFly++;
+            int randomBird = Greenfoot.getRandomNumber(120)+160;
+            int randomObject = Greenfoot.getRandomNumber(80)+370;
             if(timeFly % 200 == 0){
-                addObject(new Bird(), 670, 150);
+                addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(10);
-                if(timeplus == 5) addObject(new Goldfish(), 500, 400);
+                if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
-                if(randomOb == 2) addObject(new Garbage(), 670, 375);
-                if(randomOb == 3) addObject(new Cans(), 670, 470);
+                if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
+                if(randomOb == 3) addObject(new Cans(), 670, randomObject);
                 timeFloat = 0;
             }
         
