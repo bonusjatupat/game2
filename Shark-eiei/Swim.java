@@ -53,8 +53,16 @@ public class Swim extends FloatObjects
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("blood.png");
             getWorld().addObject(b1, getX(), getY()+70);
+<<<<<<< HEAD
             Game.eatStuff++;
             Game.HP.add(300);
+=======
+            Game.eatPeople++;
+        if(Game.HP.value>0){
+            Game.HP.add(300);
+        }
+            Game.score+=10;
+>>>>>>> origin/master
             Greenfoot.playSound("bite_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){

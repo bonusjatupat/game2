@@ -47,7 +47,14 @@ public class Garbage extends FloatObjects
             Burst b1 = new Burst("poisonSmoke.png");
             getWorld().addObject(b1, getX(), getY());
             Game.eatGarbage++;
+<<<<<<< HEAD
             Game.HP.subtract(300);
+=======
+            Game.score-=10;
+            if(Game.HP.value>0){
+             Game.HP.subtract(300);
+            }
+>>>>>>> origin/master
             Greenfoot.playSound("ouch_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
