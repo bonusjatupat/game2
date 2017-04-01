@@ -48,7 +48,9 @@ public class Garbage extends FloatObjects
             getWorld().addObject(b1, getX(), getY());
             Game.eatGarbage++;
             Game.score-=10;
+            if(Game.HP.value>0){
              Game.HP.subtract(300);
+            }
             Greenfoot.playSound("ouch_sound.mp3");
             getWorld().removeObject(this);
         } else if (isAtEdge()){
