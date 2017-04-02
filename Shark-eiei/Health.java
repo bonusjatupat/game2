@@ -19,7 +19,6 @@ public class Health extends Actor
     public String referenceText = ""; // the title string (who or what the meter/bar is for)
     public String unitOfMeasure = ""; // the unit of measure of the bar (any quantitative standard of measurement) 
     public boolean showTextualUnits = true; // determines whether or not the textual quantity of the bar is to show   
-   
     /**
      * Bar Constructor: saves the initial values that are brought in and creates the bar image through the 'add(int)' call,
      * which sets the initial value of the bar and calls the 'newImage' method to build and set a new image for the bar.

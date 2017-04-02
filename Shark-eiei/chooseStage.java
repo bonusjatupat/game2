@@ -1,14 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-/**
- * Write a description of class Timer here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class chooseStage extends Actor
 {
-    private static final Color transparent = new Color(0,0,0,0);
-    public chooseStage(){
+    private static final Color transparent = new Color(0,0,0,0); // create color variable to transparent
+    public chooseStage(){ // default constructor
         
     }
     /**
@@ -16,6 +10,6 @@ public class chooseStage extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
      public void act() {
-        setImage(new GreenfootImage("Please select the level!", 18, Color.BLACK, transparent));
+        setImage(new GreenfootImage("Please select the level!", 18, Color.BLACK, transparent)); // set image for notice "You should select the level before press this button"
     }     
 }

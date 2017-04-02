@@ -1,52 +1,40 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import javax.swing.*;
-/**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import javax.swing.*; // import java swing for using user input
 public class Game extends World
 {
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-    public static GreenfootSound sound;
-    public static int timeCounter;
-    public static int score;
-    public static int eatStuff;
-    public static int eatGarbage;
-    //public static int eatBoat;
-    //public static int eatPeople;
-    public static boolean isPlaying;
-    static int i = 0;
+    public static GreenfootSound sound; // create variable that contain sound
+    public static int timeCounter; // timeCounter that control of duration of day like a morning,evening,night
+    public static int score; // create variable that keep score
+    public static int eatStuff; // create variable that keep score of eating good thing
+    public static int eatGarbage; // create variable that keep score of eating bad thing
+    public static boolean isPlaying; // boolean that check we are play or not
+    static int i = 0; // variable that we use for control theme_sound
     
-    public static Health HP = new Health("Shark", "HP", 0, 2000);
+    public static Health HP = new Health("Shark", "HP", 0, 2000); // create object Health that us Shark's health bar contain name,type of hp,minimum hp,maximum hp
     
-    public Game()
+    public Game() // default constructor
     {    
-        super(670, 500, 1);
-        sound = new GreenfootSound("theme_sound.mp3");
+        super(670, 500, 1); // Create a new world with 670x500 cells with a cell size of 1x1 pixels.
+        sound = new GreenfootSound("theme_sound.mp3"); // add theme sound
         if(i!=0){
             sound.stop();
         }else{
             sound.play();
         }
         i++;
-        addObject(HP,105,20);
-        addObject(new PlayerName(),105,80);
-        HP.value = 2000;
-        Shark.stopMover = false;
-        isPlaying = true;
-        timeCounter=1500;
-        eatStuff=0;
-        eatGarbage=0;
-        score=0;
-        addOb();
+        addObject(HP,105,20); // add HP bar to the game
+        addObject(new PlayerName(),105,80); // add user input to the game
+        HP.value = 2000; //initial value of HP = 2000
+        Shark.stopMover = false; //Shark can move
+        isPlaying = true; //We are playing the game
+        timeCounter=3000; // Start with morning -> evening -> night
+        eatStuff=0; // initial value of eating good thing = 0
+        eatGarbage=0; // initial value of eating bad thing = 0
+        score=0; // initial value of score = 0
+        addOb(); // call method to create object in world
         setPaintOrder(Buttons.class, ScoreBoard.class, LightWater.class, Bomb.class, FloatObjects.class, Burst.class, Shark.class, 
                       DarkWater.class, Ground.class, Trees.class, Building.class, PlayerName.class, Scorepoint.class, Health.class, 
-                      Timer.class, Clouds.class);
+                      Timer.class, Clouds.class); // กูไม่รู้ มึงมาเเก้ด้วย
     }
     
     public void addOb(){
@@ -85,7 +73,7 @@ public class Game extends World
         addObject(new Buttons("home3.png","StartWorld"),640,30);
         addObject(new Buttons("play.png","MyWorld"),590,30);
     }
-    int timeBomb;
+    int timeBomb; 
     int timeFloat;
     int timeFly;
     public void act(){
@@ -181,37 +169,22 @@ public class Game extends World
                 }
             }
         }
-       /*if(Timer.playtime>0){
-        Timer.playtime--;
-       } else{
-           Timer.playtime = 0;
-           Shark.stopMover = true;
-       }*/
        if(isPlaying){
            Timer.playtime++;
            score = Timer.playtime/5;
        }
-       timeCounter--;
-       if(timeCounter == 0){
-            timeCounter = 1500;
+       timeCounter--; // keep subtract this duration of the day
+       if(timeCounter == 0){ // if equal to 0 start morning
+            timeCounter = 3000;
         }
-       /*if(timeCounter==1500 ){
-            setBackground("bg.png");
-        } else if (timeCounter==1000){
+       if(timeCounter==3000 ){ // Start with morning
+            setBackground("bg.png"); 
+        } else if (timeCounter==2000){ // then evening
             setBackground("bg2.png");
-        }else if(timeCounter==500){
+        }else if(timeCounter==1000){ // then night
             setBackground("bg3.png");
-        }*/
-       /*if(Timer.playtime==0){
-             addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
-             addObject(new Score(), getWidth()/2, 230);
-             addObject(new eatPeople(), 318, 287);
-             addObject(new eatBoat(), 285, 321);
-             addObject(new eatGarbage(), 340, 360);
-             addObject(new Buttons("replayBut.png","MyWorld"),430,340);
-             addObject(new Buttons("homeBut.png","StartWorld"),515,340);
-        }else*/ 
-        if(HP.value==0 && isPlaying == true){
+        }
+       if(HP.value==0 && isPlaying == true){
              Shark.stopMover = true;
              isPlaying = false;
              addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
@@ -255,10 +228,5 @@ public class Game extends World
             addObject(new Trees(), 670, 280);
             timeTree=0;
          }
-        //timeBuilding++;
-        //if(timeBuilding % 300 == 0){
-        //    addObject(new Building(), 670, 205);
-        //    timeBuilding=0;
-        //}
     }
 }

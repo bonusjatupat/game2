@@ -1,17 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Swim here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Swim extends FloatObjects
 {
-    /**
-     * Act - do whatever the Swim wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     int timeFloat;
     public void act() 
     {
@@ -20,7 +9,6 @@ public class Swim extends FloatObjects
         moving();
         eaten();
     }    
-    
     public Swim(){
         int randomSwim = Greenfoot.getRandomNumber(3);
         if(randomSwim == 0){
@@ -31,7 +19,6 @@ public class Swim extends FloatObjects
             setImage(swim2);
         }
     }
-    
     public void moving(){
         if(Start.level==1){
             move(-2);
@@ -48,7 +35,6 @@ public class Swim extends FloatObjects
             timeFloat=0;
         }
     }
-    
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("blood.png");

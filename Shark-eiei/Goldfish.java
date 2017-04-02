@@ -1,17 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Cans here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Goldfish extends FloatObjects
 {
-    /**
-     * Act - do whatever the Cans wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     int timeFloat;
     public void act() 
     {
@@ -19,13 +8,10 @@ public class Goldfish extends FloatObjects
         moving();
         eaten();
     }    
-    
     public Goldfish(){
        GreenfootImage can1 = new GreenfootImage("goldfish.png");
-       can1.scale(30,27);
        setImage(can1);
     }
-    
     public void moving(){
         if(Start.level==1){
             move(-2);
@@ -34,7 +20,6 @@ public class Goldfish extends FloatObjects
         } else if (Start.level==3){
             move(-4);
         } 
-        
         if(timeFloat%30==0){
             setLocation(getX(), getY()+3);
         } else if (timeFloat%59==0){
@@ -42,7 +27,6 @@ public class Goldfish extends FloatObjects
             timeFloat=0;
         }
     }
-    
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("blood.png");

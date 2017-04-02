@@ -1,17 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Garbage here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Garbage extends FloatObjects
 {
-    /**
-     * Act - do whatever the Garbage wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     int timeFloat;
     public void act() 
     {
@@ -20,11 +9,9 @@ public class Garbage extends FloatObjects
         eaten();
         
     }    
-    
     public Garbage(){
         setImage(new GreenfootImage("garbage.png"));
     }
-    
     public void moving(){
         if(Start.level==1){
             move(-2);
@@ -41,7 +28,6 @@ public class Garbage extends FloatObjects
             timeFloat=0;
         }
     }
-    
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("poisonSmoke.png");

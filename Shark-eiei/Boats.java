@@ -1,17 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Boats here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Boats extends FloatObjects
 {
-    /**
-     * Act - do whatever the Boats wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     int timeFloat;
     public void act() 
     {
@@ -20,8 +9,6 @@ public class Boats extends FloatObjects
         moving();
         eaten();
     }    
-    
-    
     public Boats(){
         int randomHouse = Greenfoot.getRandomNumber(3);
         if(randomHouse == 0){
@@ -38,7 +25,6 @@ public class Boats extends FloatObjects
             setImage(boat4);
         }
     }
-    
     public void moving(){
         if(Start.level==1){
             move(-2);
@@ -55,7 +41,6 @@ public class Boats extends FloatObjects
             timeFloat=0;
         }
     }
-    
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
             Burst b1 = new Burst("bursttt.png");
@@ -71,6 +56,4 @@ public class Boats extends FloatObjects
             getWorld().removeObject(this);
         }
     }
-    
-  
 }
