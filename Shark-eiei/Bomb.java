@@ -43,4 +43,35 @@ public class Bomb extends Actor
             getWorld().removeObject(this);
         }  
     }
+    
+    public int goUp;
+    public int goLeft;
+    public int groundLevel=340;
+    boolean isJump = false;
+    public void bounding()
+    {
+        setLocation(getX(), getY()+2);
+        boolean onGround = (getY() == groundLevel);
+        if (!onGround && isJump)
+        {
+           goUp++;
+           goLeft++;
+           setLocation(getX()-5, getY()+goUp);
+           /*if (getY()>=groundLevel)
+           {
+                setLocation(getX(), groundLevel);
+                isJump = false;
+           }*/
+           isJump = false;
+        }
+        else
+        {
+            if (isTouching(GroundSet.class))
+            {
+                goUp = -20;
+                setLocation(getX()-50, getY()+goUp);
+                isJump=true;
+            }
+        }
+    }
 }
