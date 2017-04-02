@@ -3,10 +3,10 @@ public class Bomb extends Actor
 {
     public void act() 
     {
-        // Add your action code here.
         if(Start.level == 1){
             setLocation(getX(), getY()+2);
-            setRotation(getRotation()+5);
+            //setRotation(getRotation()+5);;
+            turn(10);
         } else if (Start.level == 2){
             setLocation(getX(), getY()+3);
             setRotation(getRotation()+6);
@@ -19,6 +19,10 @@ public class Bomb extends Actor
     int randomBomb = Greenfoot.getRandomNumber(80)+370;
     public void sharkTouch(){
         if(isTouching(Shark.class)){
+           if(Shark.mudPower==true){
+            setRotation(360-getRotation()); 
+            move(getRotation());  
+           } else {
             Burst b1 = new Burst("bursttt.png");
             getWorld().addObject(b1, getX(), getY());
             Greenfoot.playSound("bomb_sound.mp3");
@@ -36,42 +40,14 @@ public class Bomb extends Actor
                 Game.isPlaying = false;
             }
              getWorld().removeObject(this);
-        } else if(getY() >= randomBomb){
+            }
+          }
+           else if(getY() >= randomBomb){
             Burst b1 = new Burst("burst.png");
             getWorld().addObject(b1, getX(), getY());
             Greenfoot.playSound("bomb_sound.mp3");
             getWorld().removeObject(this);
         }  
     }
-    
-    public int goUp;
-    public int goLeft;
-    public int groundLevel=340;
-    boolean isJump = false;
-    public void bounding()
-    {
-        setLocation(getX(), getY()+2);
-        boolean onGround = (getY() == groundLevel);
-        if (!onGround && isJump)
-        {
-           goUp++;
-           goLeft++;
-           setLocation(getX()-5, getY()+goUp);
-           /*if (getY()>=groundLevel)
-           {
-                setLocation(getX(), groundLevel);
-                isJump = false;
-           }*/
-           isJump = false;
-        }
-        else
-        {
-            if (isTouching(GroundSet.class))
-            {
-                goUp = -20;
-                setLocation(getX()-50, getY()+goUp);
-                isJump=true;
-            }
-        }
-    }
-}
+   }
+

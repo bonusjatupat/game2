@@ -96,6 +96,7 @@ public class Game extends World
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(6);
+                if(timeplus == 0) addObject(new Puffers(), 520, randomObject);
                 if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
@@ -124,6 +125,7 @@ public class Game extends World
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(8);
+                if(timeplus == 0) addObject(new Puffers(), 520, randomObject);
                 if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
@@ -152,6 +154,7 @@ public class Game extends World
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
                 int timeplus = Greenfoot.getRandomNumber(10);
+                if(timeplus == 0) addObject(new Puffers(), 520, randomObject);
                 if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);

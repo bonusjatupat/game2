@@ -9,5 +9,7 @@ public class Timer extends Actor
      public void act() {
     
         setImage(new GreenfootImage("Time :  "+((playtime/60)), 18, Color.BLACK, transparent));
+        //setImage(new GreenfootImage("Time :  "+(Shark.poweruptime), 18, Color.BLACK, transparent));
+       
     }     
 }

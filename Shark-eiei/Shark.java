@@ -14,12 +14,21 @@ public class Shark extends Actor
      */
     public static boolean isDown;
     public static boolean stopMover = false;
+    public static boolean mudPower = false;
+    public static int poweruptime;
     public void act() 
     {
         // Add your action code here.
         checkKey();
         pressA();
         jump();
+        if(mudPower==true){
+        poweruptime++;
+        if(poweruptime>=500){
+            mudPower=false;
+            poweruptime = 0;
+        }
+        } 
         //jumpMovement();
         //timeJump++;
         //getWorld().showText("timeJump " + timeJump, 500, 100);
@@ -27,7 +36,6 @@ public class Shark extends Actor
     
     public void checkKey(){
         if(getX()>=60) move(-3);
-        
         if(Game.HP.value>0 && stopMover==false){
             if(Greenfoot.isKeyDown("left")) move(-5);
             if(Greenfoot.isKeyDown("right")) move(5);
@@ -38,21 +46,27 @@ public class Shark extends Actor
                 }
             }
         } 
-    }
-    
-    public void pressA(){
+  } 
+  public void pressA(){
         if(Timer.playtime<=4000 && Timer.playtime>0 && stopMover==false){
             if ( !isDown && Greenfoot.isKeyDown("space") ) {
+                if(mudPower==true){
+                setImage ("mud_shark2.png");
+                }else if(mudPower==false){
                 setImage ("shark2.png");
+                }
                 isDown = true;
             }
             if ( isDown && !Greenfoot.isKeyDown("space") ) {
+            if(mudPower==true){
+                setImage ("mud_shark.png");
+                }else if(mudPower==false){
                 setImage ("shark.png");
+            }
                 isDown = false;
             }
         }
     }
-   
     public int goUp;
     public int groundLevel=450;
     boolean isJump = false;
@@ -70,7 +84,12 @@ public class Shark extends Actor
            {
                 setLocation(getX(), groundLevel);
                 isJump = false;
-                setImage(new GreenfootImage("shark.png"));
+            if(mudPower==true){
+                setImage("mud_shark.png");
+            } 
+            else if(mudPower==false){
+                setImage("shark.png");
+            }
            }
         }
         else
@@ -79,8 +98,12 @@ public class Shark extends Actor
             {
                 goUp = -23;
                 setLocation(getX()+5, getY()+goUp);
-                setImage(new GreenfootImage("sharkup.png"));
-                   
+             if(mudPower==true){
+                setImage("mud_sharkup.png");
+            } 
+            else if(mudPower==false){
+                 setImage("sharkup.png");
+            }
                 //turn(45);
                 isJump=true;
                 //setImage(new GreenfootImage("sharkup.png"));
@@ -93,11 +116,21 @@ public class Shark extends Actor
         if(isJump == true){
             timeJump++;
             if(timeJump <= 10){
-                setImage(new GreenfootImage("sharkup.png"));
+             if(mudPower==true){
+                setImage("mud_sharkup.png");
+            } 
+            else if(mudPower==false){
+                 setImage("sharkup.png");
+            }
             } /*else if(timeJump > 10 && timeJump < 13){
                 setImage(new GreenfootImage("shark.png"));
             }**/ else if(timeJump >= 13){
-                setImage(new GreenfootImage("sharkdown.png"));
+             if(mudPower==true){
+                setImage("mud_sharkdown.png");
+            } 
+            else if(mudPower==false){
+                 setImage("sharkdown.png");
+            }
                 timeJump=0;
             }
         }
