@@ -86,18 +86,18 @@ public class Game extends World
            HP.value = 0; 
            Shark.stopMover = true; // stop the shark
        }
-       if(Start.level == 1){
-            timeFly++;
-            int randomBird = Greenfoot.getRandomNumber(120)+100;
-            int randomObject = Greenfoot.getRandomNumber(80)+370;
-             int randomObject1 = Greenfoot.getRandomNumber(100)+400; 
-            if(timeFly % 234 == 0){
+       if(Start.level == 1){ //level 1
+            timeFly++; 
+            int randomBird = Greenfoot.getRandomNumber(120)+100; //random position bird 
+            int randomObject = Greenfoot.getRandomNumber(80)+370; //random position garbage and can
+             int randomObject1 = Greenfoot.getRandomNumber(100)+400; //random position puffer and goldfish
+            if(timeFly % 234 == 0){ //create birds
                 addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
-            if(timeFloat % 150 == 0){
-                int randomOb = Greenfoot.getRandomNumber(4);
+            if(timeFloat % 150 == 0){ // create floating objects
+                int randomOb = Greenfoot.getRandomNumber(4); //random what object is going to be 
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
@@ -105,22 +105,22 @@ public class Game extends World
                 timeFloat = 0;
             }
             timePower++;
-            if(timePower % 555 == 0){
-                int timeplus = Greenfoot.getRandomNumber(6);
+            if(timePower % 555 == 0){ //create puffer and glodfish
+                int timeplus = Greenfoot.getRandomNumber(6); //random either puffer or goldfish
                 if(timeplus == 0) addObject(new Puffers(), 670, randomObject1);
                 if(timeplus == 5) addObject(new Goldfish(), 670, randomObject1);
                 timePower = 0;
             }
             timeBomb++;
-            if(timeBomb % 300 == 0){
-                int position = Greenfoot.getRandomNumber(570)+50;
-                addObject(new Sign(), position, 40);
+            if(timeBomb % 300 == 0){ //create sign+bomb
+                int position = Greenfoot.getRandomNumber(570)+50; //random position bomb
+                addObject(new Sign(), position, 40); 
                 if(timeBomb == 1000){
                     timeBomb=0;
                 }
             }
         }
-        else if(Start.level == 2){
+        else if(Start.level == 2){ //level 2
             timeFly++;
             int randomBird = Greenfoot.getRandomNumber(120)+100;
             int randomObject = Greenfoot.getRandomNumber(80)+370;
@@ -154,7 +154,7 @@ public class Game extends World
                 }
             }
         }
-        else if(Start.level == 3){
+        else if(Start.level == 3){ //level 3
             timeFly++;
             int randomBird = Greenfoot.getRandomNumber(120)+100;
             int randomObject = Greenfoot.getRandomNumber(80)+370;
@@ -188,9 +188,9 @@ public class Game extends World
                 }
             }
         }
-       if(isPlaying){
-           Timer.playtime++;
-           score = Timer.playtime/5;
+       if(isPlaying){ //check if it is playing
+           Timer.playtime++; //added time 
+           score = Timer.playtime/5; //calculate score using play time
        }
        timeCounter--; // keep subtract this duration of the day
        if(timeCounter == 0){ // if equal to 0 start morning
@@ -203,10 +203,10 @@ public class Game extends World
         }else if(timeCounter==1000){ // then night
             setBackground("bg3.png");
         }
-       if(HP.value==0 && isPlaying == true){
-             Shark.stopMover = true;
-             isPlaying = false;
-             addObject(new ScoreBoard(), getWidth()/2, getHeight()/2);
+       if(HP.value==0 && isPlaying == true){ //check if HP=0 then game over
+             Shark.stopMover = true; //shark cannot move
+             isPlaying = false; //not playing
+             addObject(new ScoreBoard(), getWidth()/2, getHeight()/2); //add scoreboard
              addObject(new Score(), getWidth()/2, 230);
              addObject(new PlayTime(), 315, 287);
              addObject(new EatStuff(), 300, 321);
@@ -215,7 +215,7 @@ public class Game extends World
              addObject(new Buttons("homeBut.png","StartWorld"),515,340);
         }
         }
-    int timeGround=-70;
+    int timeGround=-70; //time to make the objects in the background move
     int timeDarkWater=-21;
     int timeLightWater=4;
     int timeTree;
@@ -224,26 +224,26 @@ public class Game extends World
     int timeCloud;
     public void movingObject(){
         timeGround++;
-        if(timeGround % 85 == 0){
+        if(timeGround % 85 == 0){ //new ground created
             addObject(new Ground(), 670, 320);
             timeGround=0;
         }
         timeDarkWater++;
-        if(timeDarkWater % 14 == 0){
+        if(timeDarkWater % 14 == 0){ //new darkwater created
             addObject(new DarkWater(), 670, 380);
         }
         timeLightWater++;
-        if(timeLightWater % 22 == 0){
+        if(timeLightWater % 22 == 0){ //new lightwater create
             addObject(new LightWater(), 670, 445);
             timeLightWater=0;
         }
         timeCloud++;
-        if(timeCloud % 250 == 0){
+        if(timeCloud % 250 == 0){ //new cloud create
             addObject(new Clouds(), 670, Greenfoot.getRandomNumber(90)+10);
             timeCloud=0;
         }
         timeTree++;
-        if(timeTree % 150 == 0){
+        if(timeTree % 150 == 0){ //new tree create
             addObject(new Trees(), 670, 280);
             timeTree=0;
          }
