@@ -1,7 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bomb extends Actor
 {
-    int bombtime;
+    public static int bombtime;
+    public static boolean bombcheck;
+    public Bomb(){
+        bombtime = 0;
+        bombcheck = false;
+    }
     public void act() 
     {
         if(Start.level == 1){
@@ -15,20 +20,26 @@ public class Bomb extends Actor
             setLocation(getX(), getY()+4);
             setRotation(getRotation()+7);
         }
-        sharkTouch();
-    }    
+        if(bombcheck==true){
+            bombtime++;
+        }    
+       sharkTouch();
+}
     int randomBomb = Greenfoot.getRandomNumber(80)+370;
     public void sharkTouch(){
         if(isTouching(Shark.class)){
            if(Shark.mudPower==true){
             setRotation(360-getRotation()); 
             move(getRotation());
-            bombtime++;
-            if(bombtime==300){
-            Burst b1 = new Burst("bursttt.png");
-            getWorld().addObject(b1, getX(), getY());
-            Greenfoot.playSound("bomb_sound.mp3");
-            }
+            bombcheck = true;
+            setImage("redbomb.png");
+                    if(bombtime>=100){
+                    Burst b1 = new Burst("bursttt.png");
+                    getWorld().addObject(b1, getX(), getY());
+                    Greenfoot.playSound("bomb_sound.mp3");
+                    bombcheck = false;
+                    bombtime = 0;
+                     }
            } else {
             Burst b1 = new Burst("bursttt.png");
             getWorld().addObject(b1, getX(), getY());

@@ -32,6 +32,7 @@ public class Game extends World
         eatGarbage=0; // initial value of eating bad thing = 0
         score=0; // initial value of score = 0
         addOb(); // call method to create object in world
+        //showText(""+Bomb.bombtime,50,50);
         setPaintOrder(Buttons.class, ScoreBoard.class, LightWater.class, Bomb.class, FloatObjects.class, Burst.class, Shark.class, 
                       DarkWater.class, Ground.class, Trees.class, Building.class, PlayerName.class, Scorepoint.class, Health.class, 
                       Timer.class, Clouds.class); // กูไม่รู้ มึงมาเเก้ด้วย

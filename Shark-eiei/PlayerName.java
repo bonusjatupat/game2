@@ -18,7 +18,6 @@ public class PlayerName extends Actor
               inputValue = "Untitled";
               check = inputValue.length();
             }
-          
     }
      else{
             check1 = true;
