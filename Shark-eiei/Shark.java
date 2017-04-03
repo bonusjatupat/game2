@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Shark extends Actor
 {
     public static boolean isDown;
-    public static boolean stopMover = false;
-    public static boolean mudPower = false;
+    public static boolean stopMover = false; // stop moving
+    public static boolean mudPower = false; // powerup boolean
     public static int poweruptime;
     public void act() 
     {
