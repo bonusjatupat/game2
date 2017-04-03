@@ -8,11 +8,11 @@ public class Burst extends Actor
     int timeBurst = 0;
     public void act(){
        timeBurst++;
-       if(timeBurst==40){
+       if(timeBurst==40){ //setthe time when the burst is going to be gone
                getWorld().removeObject(this);
        }
     }
-    public Burst(String fileName){
+    public Burst(String fileName){ //set burst image
         setImage(new GreenfootImage(fileName));
     }
 }
