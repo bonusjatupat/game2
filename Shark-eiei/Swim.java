@@ -37,8 +37,8 @@ public class Swim extends FloatObjects
     }
     public void eaten(){
         if(Shark.isDown & isTouching(Shark.class)){
-            Burst b1 = new Burst("blood.png");
-            getWorld().addObject(b1, getX(), getY()+70);
+            Burst b1 = new Burst("blood_splash.png");
+            getWorld().addObject(b1, getX(), getY());
             Game.eatStuff++;
             if(Game.HP.value>0){
                 Game.HP.add(300);

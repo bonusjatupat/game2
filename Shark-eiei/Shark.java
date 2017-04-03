@@ -1,24 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Shark here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Shark extends Actor
 {
-    /**
-     * Act - do whatever the Shark wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public static boolean isDown;
     public static boolean stopMover = false;
     public static boolean mudPower = false;
     public static int poweruptime;
     public void act() 
     {
-        // Add your action code here.
         checkKey();
         pressA();
         jump();
@@ -29,9 +17,11 @@ public class Shark extends Actor
             poweruptime = 0;
         }
         } 
+        if(Game.HP.value>=2010){
+            Game.HP.value = 2000;
+        }
         //jumpMovement();
         //timeJump++;
-        //getWorld().showText("timeJump " + timeJump, 500, 100);
     }  
     
     public void checkKey(){
@@ -48,7 +38,7 @@ public class Shark extends Actor
         } 
   } 
   public void pressA(){
-        if(Timer.playtime<=4000 && Timer.playtime>0 && stopMover==false){
+        if(Timer.playtime>0 && stopMover==false){
             if ( !isDown && Greenfoot.isKeyDown("space") ) {
                 if(mudPower==true){
                 setImage ("mud_shark2.png");

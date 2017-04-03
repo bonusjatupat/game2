@@ -10,7 +10,7 @@ public class Game extends World
     public static boolean isPlaying; // boolean that check we are play or not
     static int i = 0; // variable that we use for control theme_sound
     
-    public static Health HP = new Health("Shark", "HP", 0, 2000); // create object Health that us Shark's health bar contain name,type of hp,minimum hp,maximum hp
+    public static Health HP = new Health("Shark : ", "HP", 0, 2000); // create object Health that us Shark's health bar contain name,type of hp,minimum hp,maximum hp
     
     public Game() // default constructor
     {    
@@ -22,7 +22,7 @@ public class Game extends World
             sound.play();
         }
         i++;
-        addObject(HP,105,20); // add HP bar to the game
+        addObject(HP,135,20); // add HP bar to the game
         addObject(new PlayerName(),105,80); // add user input to the game
         HP.value = 2000; //initial value of HP = 2000
         Shark.stopMover = false; //Shark can move
@@ -35,75 +35,81 @@ public class Game extends World
         //showText(""+Bomb.bombtime,50,50);
         setPaintOrder(Buttons.class, ScoreBoard.class, LightWater.class, Bomb.class, FloatObjects.class, Burst.class, Shark.class, 
                       DarkWater.class, Ground.class, Trees.class, Building.class, PlayerName.class, Scorepoint.class, Health.class, 
-                      Timer.class, Clouds.class); // กูไม่รู้ มึงมาเเก้ด้วย
+                      Timer.class,Sign.class,Clouds.class); //order of preposition of pic
     }
     
-    public void addOb(){
-        addObject(new Clouds(), 90, 100);
+    public void addOb(){ //method that we created object
+        addObject(new Clouds(), 90, 100); // 3 line of add clouds
         addObject(new Clouds(), 350, 80);
         addObject(new Clouds(), 630, 20);
-        addObject(new Building("houses.png"), getWidth()/2, 200);
-        addObject(new TreeSet(), 335, 315);
-        addObject(new Scorepoint(),105,40);
-        addObject(new Timer(),105,60);
+        addObject(new Building("houses.png"), getWidth()/2, 200); //add house
+        addObject(new TreeSet(), 335, 315); // add tree
+        addObject(new Scorepoint(),105,40); // add score board
+        addObject(new Timer(),105,60); // add timer
         for(int i=0; i<15; i++){
-            addObject(new Leaves(), Greenfoot.getRandomNumber(670), Greenfoot.getRandomNumber(200));
+            addObject(new Leaves(), Greenfoot.getRandomNumber(670), Greenfoot.getRandomNumber(200)); // Random motion leaves
         }
         int xTree=0;
         for(int i=0; i<4; i++){ 
-            addObject(new Trees(), xTree, 280);
+            addObject(new Trees(), xTree, 280); // Screen moving Tree
             xTree+=210;
         }
         addObject(new GroundSet(), 335, 342);
         int xGround=0;
         for(int i=0; i<8; i++){
-            addObject(new Ground(), xGround, 320);
+            addObject(new Ground(), xGround, 320); // Screen moving Ground
             xGround+=90;
         }
         int xDarkWater=0;
         for(int i=0; i<16; i++){
-            addObject(new DarkWater(), xDarkWater, 380);
+            addObject(new DarkWater(), xDarkWater, 380); // Screen moving Darkwater
             xDarkWater+=43;
         }
         addObject(new Shark(), 100, 450);
         int xLightWater=0;
         for(int i=0; i<16; i++){
-            addObject(new LightWater(), xLightWater, 445);
+            addObject(new LightWater(), xLightWater, 445); //Screen moving LightWater
             xLightWater+=44;
         }
-        addObject(new Buttons("home3.png","StartWorld"),640,30);
-        addObject(new Buttons("play.png","MyWorld"),590,30);
+        addObject(new Buttons("home3.png","StartWorld"),640,30); // add Button to menu
+        addObject(new Buttons("play.png","MyWorld"),590,30); // add restart Button
     }
-    int timeBomb; 
+    int timeBomb;  // 4 variable that control time of spawn 
     int timeFloat;
     int timeFly;
-    public void act(){
+    int timePower;
+    public void act(){ // always do it when run
         movingObject();
-        if(HP.value>0/* && Timer.playtime>0*/){
+        if(HP.value>0/* && Timer.playtime>0*/){ // if your health is more than 0 subtract it
         HP.subtract(1);  
        }else{
-           HP.value = 0;
-           Shark.stopMover = true;
+           HP.value = 0; 
+           Shark.stopMover = true; // stop the shark
        }
        if(Start.level == 1){
             timeFly++;
             int randomBird = Greenfoot.getRandomNumber(120)+100;
             int randomObject = Greenfoot.getRandomNumber(80)+370;
-            if(timeFly % 200 == 0){
+             int randomObject1 = Greenfoot.getRandomNumber(100)+400; 
+            if(timeFly % 234 == 0){
                 addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
-                int timeplus = Greenfoot.getRandomNumber(6);
-                if(timeplus == 0) addObject(new Puffers(), 520, randomObject);
-                if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
                 if(randomOb == 3) addObject(new Cans(), 670, randomObject);
                 timeFloat = 0;
+            }
+            timePower++;
+            if(timePower % 555 == 0){
+                int timeplus = Greenfoot.getRandomNumber(6);
+                if(timeplus == 0) addObject(new Puffers(), 670, randomObject1);
+                if(timeplus == 5) addObject(new Goldfish(), 670, randomObject1);
+                timePower = 0;
             }
             timeBomb++;
             if(timeBomb % 300 == 0){
@@ -118,21 +124,26 @@ public class Game extends World
             timeFly++;
             int randomBird = Greenfoot.getRandomNumber(120)+100;
             int randomObject = Greenfoot.getRandomNumber(80)+370;
-            if(timeFly % 200 == 0){
+             int randomObject1 = Greenfoot.getRandomNumber(100)+400; 
+            if(timeFly % 234 == 0){
                 addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
-                int timeplus = Greenfoot.getRandomNumber(8);
-                if(timeplus == 0) addObject(new Puffers(), 520, randomObject);
-                if(timeplus == 5) addObject(new Goldfish(), 500, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
                 if(randomOb == 3) addObject(new Cans(), 670, randomObject);
                 timeFloat = 0;
+            }
+            timePower++;
+            if(timePower % 555 == 0){
+                int timeplus = Greenfoot.getRandomNumber(8);
+                if(timeplus == 0) addObject(new Puffers(), 670, randomObject1);
+                if(timeplus == 5) addObject(new Goldfish(), 670, randomObject1);
+                timePower = 0;
             }
             timeBomb++;
             if(timeBomb % 200 == 0){
@@ -147,23 +158,27 @@ public class Game extends World
             timeFly++;
             int randomBird = Greenfoot.getRandomNumber(120)+100;
             int randomObject = Greenfoot.getRandomNumber(80)+370;
-            if(timeFly % 200 == 0){
+            int randomObject1 = Greenfoot.getRandomNumber(100)+400; 
+            if(timeFly % 234 == 0){
                 addObject(new Bird(), 670, randomBird);
                 timeFly=0;
             }
             timeFloat++;
             if(timeFloat % 150 == 0){
                 int randomOb = Greenfoot.getRandomNumber(4);
-                int timeplus = Greenfoot.getRandomNumber(10);
-                if(timeplus == 0) addObject(new Puffers(), 670, randomObject);
-                if(timeplus == 5) addObject(new Goldfish(), 670, randomObject);
                 if(randomOb == 0) addObject(new Boats(), 670, 330);
                 if(randomOb == 1) addObject(new Swim(), 670, 365);
                 if(randomOb == 2) addObject(new Garbage(), 670, randomObject);
                 if(randomOb == 3) addObject(new Cans(), 670, randomObject);
                 timeFloat = 0;
             }
-        
+            timePower++;
+            if(timePower % 555 == 0){
+                int timeplus = Greenfoot.getRandomNumber(10);
+                if(timeplus == 0) addObject(new Puffers(), 670, randomObject1);
+                if(timeplus == 5) addObject(new Goldfish(), 670, randomObject1);
+                timePower = 0;
+            }
             timeBomb++;
             if(timeBomb % 100==0){
                 int position = Greenfoot.getRandomNumber(570)+50;

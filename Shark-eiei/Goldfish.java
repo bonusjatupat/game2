@@ -33,7 +33,7 @@ public class Goldfish extends FloatObjects
             getWorld().addObject(b1, getX(), getY()+70);
             Game.eatStuff++;
             if(Game.HP.value>0){
-                Game.HP.add(200);
+                Game.HP.add(2000);
             }
             Greenfoot.playSound("powerup_sound.mp3");
             getWorld().removeObject(this);
