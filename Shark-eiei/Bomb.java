@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bomb extends Actor
 {
+    int bombtime;
     public void act() 
     {
         if(Start.level == 1){
@@ -21,7 +22,13 @@ public class Bomb extends Actor
         if(isTouching(Shark.class)){
            if(Shark.mudPower==true){
             setRotation(360-getRotation()); 
-            move(getRotation());  
+            move(getRotation());
+            bombtime++;
+            if(bombtime==300){
+            Burst b1 = new Burst("bursttt.png");
+            getWorld().addObject(b1, getX(), getY());
+            Greenfoot.playSound("bomb_sound.mp3");
+            }
            } else {
             Burst b1 = new Burst("bursttt.png");
             getWorld().addObject(b1, getX(), getY());

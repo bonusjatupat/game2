@@ -7,8 +7,7 @@ public class Puffers extends FloatObjects
         timeFloat++;
         moving();
         eaten();
-        setRotation(getRotation()+20);
-
+        //setRotation(getRotation()+20);
     }    
     public Puffers(){
        GreenfootImage can1 = new GreenfootImage("puffers.png");

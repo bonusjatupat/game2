@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import javax.swing.*;
+//import javax.swing.JOptionPane;
 public class PlayerName extends Actor
 {
     static String playername;
