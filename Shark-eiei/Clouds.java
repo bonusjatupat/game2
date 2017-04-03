@@ -3,6 +3,6 @@ public class Clouds extends Objects
 {
     public void act() 
     {
-        moving(-1);
+        moving(-1); // only moving the cloud
     }    
 }

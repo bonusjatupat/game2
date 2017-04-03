@@ -3,6 +3,6 @@ public class DarkWater extends Objects
 {
     public void act() 
     {
-       moving(-3);
+       moving(-3); // moving the water
     }     
 }

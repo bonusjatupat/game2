@@ -3,7 +3,6 @@ public class Tutorial extends Actor
 {
     public void act() 
     { 
-        getWorld().addObject(new Buttons("home2.png", "StartWorld"), 530, 410);
+        getWorld().addObject(new Buttons("home2.png", "StartWorld"), 530, 410); // tell world to add object home buttons
     }    
-    
 }

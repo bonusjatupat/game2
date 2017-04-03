@@ -1,7 +1,5 @@
 #BlueJ class context
 comment0.target=Objects
-comment1.params=
-comment1.target=void\ act()
-comment2.params=speed
-comment2.target=void\ moving(int)
-numComments=3
+comment1.params=speed
+comment1.target=void\ moving(int)
+numComments=2

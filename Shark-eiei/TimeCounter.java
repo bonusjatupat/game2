@@ -12,7 +12,7 @@ public class TimeCounter extends ScoreBoard
             setImage(new GreenfootImage("0", 22, Color.BLACK, new Color(0,0,0,0))); 
         }
     }    
-    public TimeCounter(){
+    public TimeCounter(){ // default constructor
         timeBoard = 60000;
     }
 }

@@ -3,7 +3,7 @@ public class LightWater extends Objects
 {
     public void act() 
     {
-        moving(-2);
+        moving(-2); // moving the water
     }    
 }
 

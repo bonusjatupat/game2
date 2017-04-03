@@ -1,14 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Objects extends SmoothMover
 {
-    public void act() 
-    {
-       
-    } 
-    public void moving(int speed){
+    public void moving(int speed){ // method for move the object
         move(speed);
-        if(isAtEdge()){
-            getWorld().removeObject(this);
+        if(isAtEdge()){ // at world edge
+            getWorld().removeObject(this); // remove it
         }
     }
 }
